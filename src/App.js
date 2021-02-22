@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import MemeList from './components/MemeList';
+import { Box, Grid, Text, useMediaQuery, VStack } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import Meme from "./components/Meme";
+import MemeList from "./components/MemeList";
 
 const url = 'https://api.imgflip.com/get_memes';
 
 const App = () => {
+
+  const [onPhone] = useMediaQuery("(max-width: 700px)");
+
+
+
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [clickedTemplate, setClickedTemplate] = useState(null);
 
@@ -17,27 +24,54 @@ const App = () => {
     fetchMeme();
   }, [])
 
+  if (onPhone) {
+    return (
+      <Box bgColor="gray.700" color="whiteAlpha.800" h="auto">
+        {clickedTemplate && (
+          <Box>
+            <Meme template={clickedTemplate} />
+          </Box>)}
+        {
+          !clickedTemplate && (
+            <Box>
+              <Text fontSize="4xl" textAlign="center" pb="4rem" pt="1rem">Meme Generator</Text>
+              <VStack spacing={5}>
+                {memeTemplates.map(template => {
+                  return (
+                    <MemeList template={template} onClick={() => {
+                      setClickedTemplate(template);
+                    }} />
+                  )
+                })}
+              </VStack>
+            </Box>
+          )}
+      </Box>
+    )
+  };
+
   return (
-    <div>
+    <Box bgColor="gray.700" color="whiteAlpha.800" h="auto">
       {clickedTemplate && (
-        <>
-          <MemeList template={clickedTemplate} />
-        </>)}
+        <Box>
+          <Meme template={clickedTemplate} />
+        </Box>)}
       {
         !clickedTemplate && (
-          <>
-            <h1> choose a meme template </h1>
-            {memeTemplates.map(template => {
-              return (
-                <MemeList template={template} onClick={() => {
-                  setClickedTemplate(template);
-                }} />
-              )
-            })
-            }
-          </>)
-      }
-    </div>
+          <Box ml="21vw" mr="21vw" >
+            <Text fontSize="7xl" textAlign="center" pb="4rem">Meme Generator</Text>
+            <Grid templateColumns="repeat(3, 1fr)" gap={1}>
+              {memeTemplates.map(template => {
+                return (
+                  <MemeList template={template} onClick={() => {
+                    setClickedTemplate(template);
+                  }} />
+                )
+              })}
+            </Grid>
+          </Box>
+        )}
+    </Box>
   )
 }
 
