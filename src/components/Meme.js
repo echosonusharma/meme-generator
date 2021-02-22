@@ -123,7 +123,7 @@ const MemeList = ({ template }) => {
                         <Box pl="3rem">
                             <img src={meme} alt="bbs" width="500px" />
                             <Center pt="1rem" color="blackAlpha.700">
-                                <Button onClick={() => FileSaver.saveAs(meme, "meme.jpg")}>Download</Button>
+                                <Button onClick={() => FileSaver.saveAs(meme, `meme_${Math.floor((Math.random() * 100000) + 1)}.jpg`)}>Download</Button>
                             </Center>
                         </Box>}
                 </HStack>
