@@ -70,7 +70,7 @@ const MemeList = ({ template }) => {
                     <VStack p="1rem">
                         <img src={meme} alt="bbs" />
                         <Center pt="1rem" color="blackAlpha.700">
-                            <Button onClick={() => FileSaver.saveAs(meme, "meme.jpg")}>Download</Button>
+                            <Button onClick={() => FileSaver.saveAs(meme, `meme_${Math.floor((Math.random() * 100000) + 1)}.jpg`)}>Download</Button>
                         </Center>
                     </VStack>}
             </VStack>
