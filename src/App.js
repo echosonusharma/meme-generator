@@ -51,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <Box bgColor="gray.700" color="whiteAlpha.800" h="auto">
+    <Box bgColor="gray.700" color="whiteAlpha.800" minH="100vh">
       {clickedTemplate && (
         <Box>
           <Meme template={clickedTemplate} />

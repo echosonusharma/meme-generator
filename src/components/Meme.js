@@ -29,7 +29,7 @@ const MemeList = ({ template }) => {
 
     if (onPhone) {
         return (
-            <VStack>
+            <VStack >
                 <Box pb="3rem" pt="1rem">
                     <Button
                         bgColor="burlywood"
@@ -62,7 +62,7 @@ const MemeList = ({ template }) => {
                             type="text"
                             onChange={e => setBottomText(e.target.value)} />
                     </FormControl>
-                    <Center>
+                    <Center pb="1rem">
                         <Button color="blackAlpha.700" onClick={onSubmit}>Generate</Button>
                     </Center>
                 </Box>
