@@ -60,7 +60,7 @@ const App = () => {
         !clickedTemplate && (
           <Box ml="21vw" mr="21vw" >
             <Text fontSize="7xl" textAlign="center" pb="4rem">Meme Generator</Text>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gridGap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))", gridGap: "1rem 0", }}>
               {memeTemplates.map(template => {
                 return (
                   <MemeList template={template} onClick={() => {

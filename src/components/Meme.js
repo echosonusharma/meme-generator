@@ -79,8 +79,8 @@ const MemeList = ({ template }) => {
 
 
     return (
-        <Center h="100vh" >
-            <VStack>
+        <Center min-h="100vh" >
+            <VStack p="2rem 0">
                 <Box pb="3rem" >
                     <Button
                         bgColor="burlywood"
