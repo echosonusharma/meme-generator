@@ -68,7 +68,7 @@ const MemeList = ({ template }) => {
                 </Box>
                 {meme &&
                     <VStack p="1rem">
-                        <img src={meme} alt="bbs" />
+                        <img src={meme} alt="meme" />
                         <Center pt="1rem" color="blackAlpha.700">
                             <Button onClick={() => FileSaver.saveAs(meme, `meme_${Math.floor((Math.random() * 100000) + 1)}.jpg`)}>Download</Button>
                         </Center>
@@ -79,7 +79,7 @@ const MemeList = ({ template }) => {
 
 
     return (
-        <Center min-h="100vh" >
+        <Center min-h="100vh" max-h="130vh" >
             <VStack p="2rem 0">
                 <Box pb="3rem" >
                     <Button
@@ -97,7 +97,7 @@ const MemeList = ({ template }) => {
                     >
                         <Text fontSize="1.3rem" pb="10px" >{template.name}</Text>
                         <Center>
-                            <img style={{ width: '500px' }}
+                            <img style={{ width: '350px' }}
                                 alt={template.name}
                                 key={template.id}
                                 src={template.url}
@@ -121,7 +121,7 @@ const MemeList = ({ template }) => {
                     </Box>
                     {meme &&
                         <Box pl="3rem">
-                            <img src={meme} alt="bbs" width="500px" />
+                            <img src={meme} alt="meme" width="350px" />
                             <Center pt="1rem" color="blackAlpha.700">
                                 <Button onClick={() => FileSaver.saveAs(meme, `meme_${Math.floor((Math.random() * 100000) + 1)}.jpg`)}>Download</Button>
                             </Center>
