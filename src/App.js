@@ -1,4 +1,4 @@
-import { Box, Grid, Text, useMediaQuery, VStack } from '@chakra-ui/react';
+import { Box, Text, useMediaQuery, VStack } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import Meme from "./components/Meme";
 import MemeList from "./components/MemeList";
@@ -60,7 +60,7 @@ const App = () => {
         !clickedTemplate && (
           <Box ml="21vw" mr="21vw" >
             <Text fontSize="7xl" textAlign="center" pb="4rem">Meme Generator</Text>
-            <Grid templateColumns="repeat(3, 1fr)" gap={1}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gridGap: "1rem" }}>
               {memeTemplates.map(template => {
                 return (
                   <MemeList template={template} onClick={() => {
@@ -68,7 +68,7 @@ const App = () => {
                   }} />
                 )
               })}
-            </Grid>
+            </div>
           </Box>
         )}
     </Box>
